@@ -7,8 +7,7 @@ const Register = ({ setUser }) => {
     name: "",
     email: "",
     password: "",
-    // FIX 1: Initialize these properly (strings), not just variable names
-    role: "user", // Change to "admin" if you want to test admin features immediately
+    role: "user",
     team: ""      
   });
 
