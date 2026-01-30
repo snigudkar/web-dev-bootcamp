@@ -28,7 +28,7 @@ const Login = ({ setUser }) => {
             Manage all your tasks in one place
           </span>
           <h1 className="text-6xl font-black text-blue-700 leading-tight">
-            Cloud-based <br /> Task Manager
+            Web Based <br /> Task Manager
           </h1>
         </div>
 
