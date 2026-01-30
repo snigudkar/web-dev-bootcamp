@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import API from "../api"; // Ensure this path is correct
+import API from "../api"; 
 
 const Register = ({ setUser }) => {
   const [form, setForm] = useState({
@@ -16,11 +16,9 @@ const Register = ({ setUser }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      // Ensure your backend endpoint is actually "/signup" (check your server routes)
       const { data } = await API.post("/api/signup", form);
-      
-      // FIX 2: Use "userInfo" to match App.jsx and Dashboard.jsx
-      localStorage.setItem("userInfo", JSON.stringify(data));
+
+      localStorage.setItem("userInfo", JSON.stringify(data)); //Keeps the user logged in after registration
       
       setUser(data);
       navigate("/");

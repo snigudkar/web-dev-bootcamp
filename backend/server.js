@@ -25,7 +25,7 @@ async function startDB() {
   },
 });
   await mongoose.connect(mongo.getUri());
-  console.log("✅ In-Memory MongoDB Connected");
+  console.log("In-Memory MongoDB Connected");
   //await seedAdmin();
 }
 startDB();
@@ -38,5 +38,5 @@ startDB();
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
