@@ -1,3 +1,4 @@
+// Axios is just a cleaner and simpler way to make HTTP requests in JavaScript/React
 import axios from 'axios';
 
 const API = axios.create({
