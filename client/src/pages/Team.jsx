@@ -10,10 +10,20 @@ const Team = ({ user }) => {
 
   const fetchData = async () => {
     try {
+      //Phase A
       const teamRes = await API.get("/api/user/get-team");
       // Ensure we always set an array
       setTeamMembers(Array.isArray(teamRes.data) ? teamRes.data : []);
+      //AXIOS RESPONSE
+      /*{
+  data: [...],  <--- teamRes.data   
+  status: 200,
+  headers: {...},
+  config: {...}
+      }*/
       
+
+      //Phase B
       if (showModal) {
         const availRes = await API.get("/api/user/available");
         setAvailableUsers(Array.isArray(availRes.data) ? availRes.data : []);
@@ -30,7 +40,7 @@ const Team = ({ user }) => {
 
   const handleAddMember = async (e) => {
     e.preventDefault();
-    if (!selectedEmail) return alert("Please select a user");
+    if (!selectedEmail) return alert("Please select an item in the list");
     
     try {
       await API.post("/api/user/add-to-team", { email: selectedEmail });
@@ -39,6 +49,13 @@ const Team = ({ user }) => {
       fetchData(); // Refresh the list
     } catch (error) {
       alert(error.response?.data?.message || "Failed to add member");
+
+   /* User.findOneAndUpdate(
+  { email: req.body.email },   // find condition
+  { isActive: true },          // update
+  { new: true } */               // return updated document
+
+
     }
   };
 

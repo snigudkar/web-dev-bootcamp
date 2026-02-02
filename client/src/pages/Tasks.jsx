@@ -13,7 +13,9 @@ const Tasks = ({ user }) => {
     try {
       // If user is member, we only want tasks assigned to them
       const queryParam = user?.role === "admin" ? "" : `?userId=${user?._id}`;
-      const { data } = await API.get(`/api/tasks${queryParam}`);
+      //  /api/tasks<---admin 
+      //  /api/tasks?userId=123 <-- filter tasks for members
+      const { data } = await API.get(`/api/tasks${queryParam}`); 
       setTasks(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Error fetching tasks:", error);

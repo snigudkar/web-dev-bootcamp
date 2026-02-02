@@ -23,7 +23,7 @@ const CreateTask = () => {
     fetchTeamMembers();
   }, []);
 
-  // ✅ Add member to chips
+  // Add member to chips
   const addMember = (e) => {
     const selectedId = e.target.value;
     if (!selectedId) return;
@@ -35,8 +35,12 @@ const CreateTask = () => {
     }
     e.target.value = ""; // Reset dropdown
   };
-
-  // ✅ Remove member from chips
+  //assignedTo = [{ _id: "1", name: "Admin" }];
+  /*assignedTo = [
+  { _id: "1", name: "Admin" }, 
+  { _id: "2", name: "Jim" }
+]; */
+  // Remove member from chips
   const removeMember = (id) => {
     setAssignedTo(assignedTo.filter(m => m._id !== id));
   };
@@ -58,6 +62,13 @@ const CreateTask = () => {
     }
   };
 
+  /*{
+  "title": "Fix Bug",
+  "description": "The login button is broken",
+  "assignedTo": ["1", "2"],
+  "priority": "High"
+}
+*/
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl overflow-hidden">
@@ -91,7 +102,7 @@ const CreateTask = () => {
                 ))}
               </select>
 
-              {/* ✅ MODERN CHIPS SECTION */}
+              {/* Modern Chips*/}
               <div className="flex flex-wrap gap-2">
                 {assignedTo.map(member => (
                   <div key={member._id} className="flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
