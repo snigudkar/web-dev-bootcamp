@@ -9,7 +9,7 @@ const app = express();
 const corsOptions = {
   origin: ["http://localhost:5173", "https://psychic-space-fortnight-v6p7j5rgqx7gcx9vg-5173.app.github.dev"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "userid"],
+  allowedHeaders: ["Content-Type", "Authorization", "userid"], //what extra info client is allowed to send with the request
   credentials: true 
 };
 app.use(cors(corsOptions));
@@ -118,6 +118,9 @@ app.get("/api/tasks", async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: "Error fetching tasks" });
   }
+//Start the server and listen to requests coming to PORT
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 app.post("/api/tasks", async (req, res) => {
