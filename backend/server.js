@@ -23,7 +23,7 @@ async function startDB() {
   },
 });
   await mongoose.connect(mongo.getUri());
-  console.log("✅ In-Memory MongoDB Connected");
+  console.log("In-Memory MongoDB Connected");
   await seedAdmin();
 }
 startDB();
@@ -145,4 +145,4 @@ app.post("/api/tasks", async (req, res) => {
   createdAt: { type: Date, default: Date.now }
 });
 */
-app.listen(5000, () => console.log("🚀 Server running on 5000"));
+app.listen(5000, () => console.log("Server running on 5000"));
