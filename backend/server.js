@@ -89,6 +89,7 @@ app.get("/api/user/available", async (req, res) => {
 
 
 
+
 // --- TASK ROUTES ---
 app.get("/api/tasks", async (req, res) => {
   try {
@@ -117,7 +118,9 @@ app.get("/api/tasks", async (req, res) => {
 }*/
   } catch (err) {
     res.status(500).json({ message: "Error fetching tasks" });
-  }
+  }});
+
+  const PORT = process.env.PORT || 5000;
 //Start the server and listen to requests coming to PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
