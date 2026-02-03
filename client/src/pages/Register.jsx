@@ -17,14 +17,6 @@ const Register = ({ setUser }) => {
     e.preventDefault();
     try {
       const { data } = await API.post("/api/signup", form);
-      // "data" looks like this:
-      // {
-      //   _id: "65ab1234...",
-      //   name: "John",
-      //   email: "john@gmail.com",
-      //   password: "$2b$10$hashedPasswordHere",
-      //   isActive: false,
-      // }
 
       localStorage.setItem("userInfo", JSON.stringify(data)); //Keeps the user logged in after registration
       
@@ -81,11 +73,7 @@ const Register = ({ setUser }) => {
               setForm({ ...form, email: e.target.value })
             }
           />
-          
-          {/* Save previous state or response
-              I like cupcakes
-              " " cheesecake
-              " " noodles    */}
+
           <input
             type="password"
             placeholder="Password"

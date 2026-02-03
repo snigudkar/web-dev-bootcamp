@@ -9,7 +9,7 @@ const app = express();
 const corsOptions = {
   origin: ["http://localhost:5173", "https://probable-disco-69g6vvpxqp7j2r7vq-5173.app.github.dev"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "userid"], //what extra info client is allowed to send with the request
+  allowedHeaders: ["Content-Type", "Authorization", "userid"],
   credentials: true 
 };
 
@@ -69,12 +69,16 @@ app.get("/api/tasks", async (req, res) => {
 }*/
   } catch (err) {
     res.status(500).json({ message: "Error fetching tasks" });
+<<<<<<< HEAD
   }});
 
   const PORT = process.env.PORT || 5000;
 //Start the server and listen to requests coming to PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+=======
+  }
+>>>>>>> parent of 5d231dc (Merge branch 'main' of https://github.com/snigudkar/web-dev-bootcamp)
 });
 
 app.post("/api/tasks", async (req, res) => {
